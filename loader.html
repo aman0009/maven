@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+    <title> Loader </title>
+        <style>
+        .container
+            {
+                
+     width: 720px;
+     height: 500px;
+     border: 1px solid #000;
+            }
+            .contain
+            {
+                width:500px;
+                height:500px;
+                float: left;
+                background-color:black;
+            }
+            .contain img
+            {
+                width:500px;
+                height:500px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" ></div>
+      <div class="contain">
+       <img src="images/morgan_freeman_actor_black_white_gray-haired_hollywood_18914_3840x2160.jpg" data-full="images/image01.jpg">
+        <img src="images/platon_photographer-president-mahmoud-ahmadinejad-portrait.jpg"
+              data-full="images/image02.jpg">
+            </div>
+    </body>
+    <script src="js/jquery-1.12.1.min.js"></script>
+    
+    <script>
+$('.contain img').on('click',function(e) {
+    e.preventDefault();
+    
+    //or, if you want to load it not as a background:
+    $('.container').html('<img src="'+$(this).attr('data-full')+'" />');
+});
+    </script>
+</html>

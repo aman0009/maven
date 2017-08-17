@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div id="divMainImage">
+        <img id="mainImage" src="/images/image01Main.jpg" alt="Main image" />
+    </div>
+    <div id="divThumbnails">
+        <img class="thumb" src="/images/image01.jpg" alt="image01 thumbnail" />
+        <img class="thumb" src="/images/image02.jpg" alt="image02 thumbnail" />
+        <img class="thumb" src="/images/image03.jpg" alt="image03 thumbnail" />
+    </div>
+    <script type="text/javascript">
+        // Name both small and large images the same but with a prefix or suffix depicting thumbnail/main:
+        // image01.jpg (image01small.jpg) or image01Main.jpg (image01.jpg)
+        // image02.jpg (image02small.jpg) or image02Main.jpg (image02.jpg) etc.
+        // Or use two folders - one with main images, the other with thumbnails - both files named the same,
+        // then swap the folder to use when getting the image.
+
+        // Then use the displayed thumbnails' class to load originals:
+        var thumbnails = document.getElementsByClassName("thumb");
+        var mainImage = document.getElementById("mainImage");
+
+        for (index in thumbnails)
+        {
+            thumbnails[index].onclick = function () {
+                // Depending on the way used use on of the following:
+                mainImage.src = this.src.replace('.jpg', 'Main.jpg');
+                // Or
+                // mainImage.src = this.src.replace('thumb.jpg', '.jpg');
+                // Or
+                // mainImage.src = this.src.replace('/images/small/', '/images/large/');
+            }
+        }
+    </script>
+</body>
+</html>
